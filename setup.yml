@@ -8,3 +8,20 @@
       git: repo=https://github.com/amoshaked/spring-petclinic.git dest=/home/ec2-user/petclinic
     - name: clone tocd
       git: repo=https://github.com/amoshaked/tocd.git dest=/home/ec2-user/tocd
+    - name: install docker
+      yum: name=docker state=latest
+      become: yes
+      become_method: sudo
+    - name: add rights
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+      become: yes
+      become_method: sudo
+    - name: run docker
+      service:
+        name: docker
+        state: started
+      become: yes
+      become_method: sudo
