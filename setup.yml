@@ -26,6 +26,6 @@
       become: yes
       become_method: sudo
     - name: download maven
-      unarchive: src=http://apache.mivzakim.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz dest=/home/ec2-user//maven copy=no
+      unarchive: src=http://apache.mivzakim.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz dest=/home/ec2-user/maven copy=no creates=/home/ec2-user/maven/appache-maven-3.3.9
       become: yes
       become_method: sudo
